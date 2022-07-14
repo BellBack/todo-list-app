@@ -18,13 +18,6 @@ export const App: React.FC = () => {
         state.updateTask,
         state.removeTask
     ]);
-
-    console.log(tasks)
-
-    // useEffect(() => {
-    // createTask('first task');
-    // }, []);
-    // console.log(11, tasks)
     
     return (
         <article className={styles.article}>

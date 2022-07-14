@@ -33,7 +33,7 @@ const getCurrentState = () => {
         const currentState = (JSON.parse(window.localStorage.getItem('tasks') || '[]')) as Task[];
         return currentState;
     }catch(err){
-        window.localStorage.getItem('tasks','[]');
+        window.localStorage.getItem('tasks' || '[]');
     }
     return [];
 }
@@ -57,7 +57,7 @@ export const useToDoStore = create<ToDoStore>(localStorageUpdate((set, get) => (
         const { tasks } = get();
         set({
             tasks: tasks.map((task) => ({
-                ...tasks,
+                ...task,
                 title: task.id === id ? title : task.title,
             }))
         });
